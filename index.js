@@ -1,60 +1,14 @@
-'use strict';
-import Carousel from "./components/Carousel.js";
-import Dots from "./components/Dots.js";
-import Controls from "./components/Controls.js";
+import {renderer} from "./lib";
+import start from "./binding";
 
-let slideIndex = 1;
+renderer(
+    document.getElementById('root'),
+    start(),
+);
 
-const controls = new Controls();
-const carousel = new Carousel();
-const dotsContainer = new Dots();
-
-const root = document.getElementById('root');
-
-root.append(...carousel);
-root.append(...controls);
-root.append(dotsContainer);
-
-const dots = dotsContainer.children
-const [prev, next] = controls;
-const slides = carousel;
-
-[...dots].forEach((dot, index) => {
-    dot.onclick = () => currentSlide(index + 1)
-})
-
-showSlides(slideIndex);
-
-function currentSlide(n) {
-    slideIndex = n
-    showSlides(slideIndex);
-}
-
-function showSlides(n) {
-
-    if (n > slides.length) {
-        slideIndex = 1
-    }
-    if (n < 1) {
-        slideIndex = slides.length
-    }
-    for (let i of slides) {
-        i.classList.add("display")
-        i.classList.remove("displayBlock")
-    }
-    for (let i of dots) {
-        i.classList.remove("active");
-    }
-    slides[slideIndex - 1].classList.remove("display")
-    slides[slideIndex - 1].classList.add("displayBlock")
-    dots[slideIndex - 1].classList.add("active");
-}
-
-prev.addEventListener("click", () => {
-    slideIndex -= 1
-    showSlides(slideIndex);
-});
-next.addEventListener("click", () => {
-    slideIndex += 1
-    showSlides(slideIndex);
-});
+/*
+* https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel
+* https://www.techtarget.com/whatis/definition/Model-View-ViewModel#:~:text=Model%2DView%2DViewModel%20(MVVM)%20is%20a%20software%20design,Ken%20Cooper%20and%20John%20Gossman.
+* https://metanit.com/sharp/wpf/22.1.php
+* https://www.guru99.com/mvc-vs-mvvm.html
+* */

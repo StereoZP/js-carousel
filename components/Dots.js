@@ -1,4 +1,4 @@
-import Component from "../lib";
+import {Component} from "../lib";
 
 class Dots extends Component {
     constructor() {
