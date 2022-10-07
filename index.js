@@ -1,9 +1,9 @@
 import {renderer} from "./lib";
-import start from "./binding";
+import startApp from "./binding";
 
 renderer(
     document.getElementById('root'),
-    start(),
+    startApp(),
 );
 
 /*

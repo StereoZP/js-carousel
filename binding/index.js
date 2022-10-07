@@ -2,8 +2,8 @@ import view from "./createView.js";
 import carouselController from "./createModel.js";
 
 const {controls, dotsContainer} = view;
-const [start, {setSlide, getNextSlide, getPrevSlide}] = carouselController;
-const [prev, next] = controls;
+const [initializeCarousel, {setSlide, getNextSlide, getPrevSlide}] = carouselController;
+const [next,prev] = controls;
 
 /* Create "View-Model" - Connect rendered View with Model logic*/
 [...dotsContainer.children].forEach((dot, index) => {
@@ -16,7 +16,7 @@ next.addEventListener("click", () => {
     setSlide(getPrevSlide());
 });
 
-export default () => {
-    start();
+export default function createBinding () {
+    initializeCarousel();
     return view;
 };

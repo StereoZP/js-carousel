@@ -3,9 +3,7 @@ export default class CarouselController {
     initialized = false;
 
     constructor(slides, dots) {
-        if (this.initialized) {
-            return console.error('Carousel has been initialized')
-        }
+
         this.slides = slides
         this.dots = dots
         return [this.initialize.bind(this), {
@@ -16,6 +14,9 @@ export default class CarouselController {
     }
 
     initialize() {
+        if (this.initialized) {
+            return console.error('Carousel has been initialized')
+        }
         this.initialized = true;
         this.setCurrentSlide(this.slideIndex);
     }
