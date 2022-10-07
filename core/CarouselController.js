@@ -27,7 +27,6 @@ export default class CarouselController {
 
     getPrevSlide() {
         return this.slideIndex - 1;
-
     }
 
     setCurrentSlide(n) {
