@@ -1,48 +1,14 @@
-'use strict';
-let slideIndex = 1;
-const prev = document.querySelector(".prev")
-const next = document.querySelector(".next")
-const slides = document.querySelectorAll(".mySlides");
-const dots = document.querySelectorAll(".dot");
-dots.forEach((dot,index)=>{dot.onclick=()=>currentSlide(index+1)})
+import {renderer} from "./lib";
+import startApp from "./binding";
 
-showSlides(slideIndex);
+renderer(
+    document.getElementById('root'),
+    startApp(),
+);
 
-function currentSlide(n) {
-    slideIndex = n
-    showSlides(slideIndex);
-}
-
-function showSlides(n) {
-
-    if (n > slides.length) {
-        slideIndex = 1
-    }
-    if (n < 1) {
-        slideIndex = slides.length
-    }
-        for (let i of slides) {
-            i.classList.add("display")
-            i.classList.remove("displayBlock")
-        }
-        for (let i of dots) {
-            i.classList.remove("active");
-        }
-        slides[slideIndex-1].classList.remove("display")
-        slides[slideIndex-1].classList.add("displayBlock")
-        dots[slideIndex-1].classList.add("active");
-}
-    prev.addEventListener("click", ()=>{
-        slideIndex-= 1
-        showSlides(slideIndex);
-    });
-    next.addEventListener("click", ()=>{
-        slideIndex+= 1
-        showSlides(slideIndex);
-    });
-
-/*const carousel = document.getElementById('carousel');
-    const div = new Component().render();
-    carousel.append(div);*/
-
-
+/*
+* https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel
+* https://www.techtarget.com/whatis/definition/Model-View-ViewModel#:~:text=Model%2DView%2DViewModel%20(MVVM)%20is%20a%20software%20design,Ken%20Cooper%20and%20John%20Gossman.
+* https://metanit.com/sharp/wpf/22.1.php
+* https://www.guru99.com/mvc-vs-mvvm.html
+* */
