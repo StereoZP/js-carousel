@@ -1,8 +1,9 @@
 /* Create "Model" */
 import CarouselController from "../core/CarouselController.js";
+import ModalWindowController from "../core/ModalWindowController.js";
 import view from "./createView.js";
 
-const {carousel, dotsContainer} = view;
-const carouselController = new CarouselController(carousel, dotsContainer.children);
+const {carousel, dotsContainer, modal} = view;
 
-export default carouselController;
+export const carouselController = new CarouselController(carousel, dotsContainer.children);
+export const modalController = new ModalWindowController(modal);
