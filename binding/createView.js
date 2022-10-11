@@ -16,7 +16,6 @@ const openBtn = new Button();
 const closeBtn = new Button();
 
 const modal = new Modal(closeBtn)
-console.log(modal)
 /* Need to preserve the order */
 export default {
     render: {
