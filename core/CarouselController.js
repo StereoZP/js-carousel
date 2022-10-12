@@ -42,14 +42,14 @@ export default class CarouselController {
             this.slideIndex = this.slides.length
         }
         for (let i of this.slides) {
-            i.classList.add("display")
-            i.classList.remove("displayBlock")
+            i.classList.add("hidden")
+            i.classList.remove("visible")
         }
         for (let i of this.dots) {
             i.classList.remove("active");
         }
-        this.slides[this.slideIndex - 1].classList.remove("display")
-        this.slides[this.slideIndex - 1].classList.add("displayBlock")
+        this.slides[this.slideIndex - 1].classList.remove("hidden")
+        this.slides[this.slideIndex - 1].classList.add("visible")
         this.dots[this.slideIndex - 1].classList.add("active");
     }
 

@@ -1,9 +1,11 @@
 import view from "./createView.js";
-import carouselController from "./createModel.js";
+import {carouselController, modalController} from "./createModel.js";
 
-const {controls, dotsContainer} = view;
+const {controls, dotsContainer, closeBtn, openBtn} = view;
 const [initializeCarousel, carouselLogic] = carouselController;
+// const {setWindow} = modalController;
 const [prev, next] = controls;
+
 
 /* Create "View-Model" - Connect rendered View with Model logic*/
 [...dotsContainer.children].forEach((dot, index) => {
@@ -16,7 +18,16 @@ next.addEventListener("click", () => {
     carouselLogic.setSlide(carouselLogic.getNextSlide());
 });
 
+openBtn.addEventListener('click', () => {
+    modalController.setWindow(true);
+});
+
+closeBtn.addEventListener('click', () => {
+    modalController.setWindow(false);
+})
+
+
 export default function createBinding() {
     initializeCarousel();
-    return view;
+    return view.render;
 };
