@@ -12,11 +12,10 @@ class Modal extends Component {
             element: 'div',
             props: {classes: ['modal']},
             children: [
-                ...this._children,
                 {
                     element: 'div',
                     props: {classes: ['modal-content']},
-                    children: ['CONTENT'],
+                    children: ['CONTENT',...this._children],
                 }
             ],
         }]

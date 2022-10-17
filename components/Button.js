@@ -1,15 +1,18 @@
 import {Component} from "../lib";
 
 class Button extends Component {
-    constructor() {
-        return super().createComponent(this.render());
+    constructor(text) {
+        super()
+        this.text = text;
+        return this.createComponent(this.render());
+
     }
 
     render() {
         return [{
             element: 'button',
-            props: {},
-            children: ['test']
+            props: {attributes: ['data-tooltip', 'Открыть модалку']},
+            children: [this.text]
         }]
     }
 }

@@ -1,6 +1,7 @@
 import view from "./createView.js";
 import {carouselController, modalController} from "./createModel.js";
 
+
 const {controls, dotsContainer, closeBtn, openBtn} = view;
 const [initializeCarousel, carouselLogic] = carouselController;
 // const {setWindow} = modalController;
@@ -20,6 +21,14 @@ next.addEventListener("click", () => {
 
 openBtn.addEventListener('click', () => {
     modalController.setWindow(true);
+});
+
+openBtn.addEventListener('mouseover', (event) => {
+    modalController.Onmouseover(event)
+});
+
+openBtn.addEventListener('mouseout', () => {
+    modalController.Onmouseout()
 });
 
 closeBtn.addEventListener('click', () => {

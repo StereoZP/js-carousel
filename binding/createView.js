@@ -12,8 +12,8 @@ const dotsContainer = new Dots();
 
 const carouselContainer = new Wrapper(carousel, controls, dotsContainer);
 
-const openBtn = new Button();
-const closeBtn = new Button();
+const openBtn = new Button("Open");
+const closeBtn = new Button("Close");
 
 const modal = new Modal(closeBtn)
 /* Need to preserve the order */
