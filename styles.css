@@ -203,3 +203,9 @@ img {
 .close:hover {
     background: #bbbbbb;
 }
+.errorBorder{
+    border: 1px solid red;
+}
+.passwordBorder{
+    border-top: 1px solid green;
+}

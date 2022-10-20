@@ -1,8 +1,8 @@
 import view from "./createView.js";
-import {carouselController, modalController} from "./createModel.js";
+import {carouselController, formController, modalController} from "./createModel.js";
 
 
-const {controls, dotsContainer, closeBtn, openBtn} = view;
+const {controls, dotsContainer, closeBtn, openBtn, confirmBtn} = view;
 const [initializeCarousel, carouselLogic] = carouselController;
 // const {setWindow} = modalController;
 const [prev, next] = controls;
@@ -33,6 +33,16 @@ openBtn.addEventListener('mouseout', () => {
 
 closeBtn.addEventListener('click', () => {
     modalController.setWindow(false);
+})
+
+confirmBtn.addEventListener('click', () => {
+
+
+    //event.preventDefault()
+    formController.removeValidation();
+    formController.checkFieldsPresence();
+    formController.checkPasswordMatch();
+
 })
 
 
