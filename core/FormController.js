@@ -46,25 +46,31 @@ export default class FormController {
         }
 
         // Validate length
-        if(password.value.length >= 8) {
+        if(password.value.length < 8) {
 
         }
     }*/
 
-    checkPassword(){
-        let password = document.querySelector('.password');
+    checkPassword() {
+       let password = document.querySelector('.password');
 
-        if(password.value.length < 8){
-            let error = this.generateError('Password is not strong');
-            password.parentElement.insertBefore(error, password);
-        }
-
+        password.addEventListener('input',function(){
+            console.log(this.value.length);});
+        /*function myFunction() {
+            if (this.value.length < 8) {
+                let error = this.generateError('Password is not strong');
+                password.parentElement.insertBefore(error, password);
+            }
+        }*/
     }
+
 
     checkPasswordMatch() {
         let password = document.querySelector('.password');
         let passwordConfirmation = document.querySelector('.passwordConfirmation');
 
+        password.addEventListener('input',function(){
+            console.log(this.value.length);});
         if (password.value !== passwordConfirmation.value) {
             let error = this.generateError('Password doesnt match');
             passwordConfirmation.parentElement.insertBefore(error, passwordConfirmation);
